@@ -6,7 +6,7 @@ function index() {
 		<>
 			<Header/>
 			<div style={{height: "1100px"}}>
-			<h1 >Homeeeee</h1>
+			<h1 >Home1</h1>
 			</div>
 			<Footer/>
 		</>
