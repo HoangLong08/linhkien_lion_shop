@@ -1,0 +1,14 @@
+footer {
+	background: rgb(55,55,55);
+	margin-top: auto;
+	width: 100%
+ }
+ .footer-list-top > li {
+	text-align: center;
+	padding-bottom: 10px
+ }
+ .footer-list-header {
+	padding: 10px 0 5px 0;
+	color: #fff;
+	font: 2.3vw "Oswald", sans-serif
+ }
