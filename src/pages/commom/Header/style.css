@@ -37,7 +37,17 @@ header{
 	top: 0;
 	z-index: 9;
 	transition: height 5s ;
+	box-shadow: 0 4px 6px 0 rgba(202, 197, 197, 0.5);
 }
+.brand{
+	/* width: 200px; */
+	display: flex;
+}
+.brand img{
+	width: 60px;
+	height: auto;
+}
+
 .footer-main{
 	padding: 0 20px;
 }
@@ -54,7 +64,7 @@ header{
 }
 .container-header{
 	display: flex;
-	background-color: #255492;
+	background-color: white;
 	height: 110%;
 	width: 100%;
 	align-items: center;
@@ -68,7 +78,7 @@ header{
 	margin-bottom: 0 !important;
 }
 .container-header h3{
-	color: white;
+	color: #373941;
 }
 .header-menu{
 	display: flex;
@@ -76,12 +86,12 @@ header{
 }
 .header-menu li a {
 	display: inline-block;
-	color: white;
+	color: #373941;
 	font-weight: bold;
 	padding: 20px;
 }
 .header-menu li a:hover{
-	color: white;
+	color: #373941;
 }
 
 .hover-user{
@@ -125,4 +135,13 @@ header{
 .center-icon{
 	text-align: center;
 	font-size: 24px;
+}
+
+.ant-btn-primary{
+	background-image: linear-gradient(to right, rgb(219, 135, 8), rgb(165, 21, 76)) !important;
+	border-color: rgb(34, 63, 156) !important;
+}
+.anticon{
+	font-size: 16px !important;
+	font-weight: 500 !important;
 }

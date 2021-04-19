@@ -16,7 +16,14 @@ function index() {
 			<header>
 				<div className="container-header">
 					<Link onClick = {()=>history.push(`/`)}>
-						<h1>LOGO</h1>
+						<div className="brand">
+							<div className="brand-img">
+								<img src="https://cdn.thukyluat.vn/nhch-images//CauHoi_Hinh/9eb6abaa-8cda-456c-ad66-26ba4da23ffe.jpg?fbclid=IwAR0t7ycFiSjYHuDoezWnRRuzVWsLYvRYPvxXjGfgVoXxfCzuoeECKgR-EWM" alt=""/>
+							</div>
+							<div className="brand-name">
+								<h1>LION</h1>
+							</div>
+						</div>
 					</Link>
 					<div className=" header-search">
 					

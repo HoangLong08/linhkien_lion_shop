@@ -1,14 +1,16 @@
+
 footer {
-	background: rgb(55,55,55);
-	margin-top: auto;
+	background: rgba(219, 217, 214, 0.5);
+	padding: 0 50px;
 	width: 100%
- }
- .footer-list-top > li {
-	text-align: center;
+}
+.footer-list-top > li {
+	text-align: left;
 	padding-bottom: 10px
- }
- .footer-list-header {
+}
+
+.footer-list-header {
 	padding: 10px 0 5px 0;
-	color: #fff;
+	color: black;
 	font: 2.3vw "Oswald", sans-serif
- }
+}
