@@ -10,7 +10,7 @@ function index() {
 					<Col md={8} sm={24} xs={24}>
 						<ul class="footer-list-top">
 							<li>
-								<h4 class="footer-list-header">About</h4></li>
+								<h4 class="footer-list-header">HỖ TRỢ KHÁCH HÀNG</h4></li>
 							<li><a href='/shop/about-mission' class="generic-anchor footer-list-anchor" itemprop="significantLink">GET TO KNOW US</a></li>
 							<li><a href='/promos.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">PROMOS</a></li>
 							<li><a href='/retailers/new-retailers.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">BECOME A RETAILER</a></li>
@@ -24,7 +24,7 @@ function index() {
 					<Col md={8} sm={24} xs={24}>
 					<ul class="footer-list-top">
 						<li>
-							<h4 class="footer-list-header">The Gift Selection</h4></li>
+							<h4 class="footer-list-header">PHƯƠNG THỨC THANH TOÁN</h4></li>
 
 
 						<li><a href='/Angels/cat/id/70' class="generic-anchor footer-list-anchor">ANGEL FIGURINES</a></li>
@@ -38,7 +38,7 @@ function index() {
 					<Col  md={8} sm={24} xs={24}>
 						<ul class="footer-list-top">
 							<li id='help'>
-								<h4 class="footer-list-header">Thông tin liên hệ</h4></li>
+								<h4 class="footer-list-header">KẾT NỐI VỚI CHÚNG TÔI</h4></li>
 							<li><a href='/shop/about-contact' class="generic-anchor footer-list-anchor" itemprop="significantLink">CONTACT</a></li>
 							<li><a href='/faq.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">FAQ</a></li>
 							<li id='find-a-store'><a href='/shop/store-locator' class="generic-anchor footer-list-anchor" itemprop="significantLink">STORE LOCATOR</a></li>
