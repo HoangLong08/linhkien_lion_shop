@@ -47,7 +47,12 @@ header{
 	width: 60px;
 	height: auto;
 }
-
+.brand-name h1{
+	font-weight: bold;
+  background: -webkit-linear-gradient( rgb(219, 135, 8), rgb(165, 21, 76));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .footer-main{
 	padding: 0 20px;
 }
