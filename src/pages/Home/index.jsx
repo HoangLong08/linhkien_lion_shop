@@ -37,7 +37,7 @@ function index() {
 					</h3>
 				</div>
 			</Carousel>
-			<div style={{height: "1100px"}}>
+			<div style={{background: "#f2f3f5"}}>
 			<h1 >Homeeeee</h1>
 			</div>
 			<Footer/>
