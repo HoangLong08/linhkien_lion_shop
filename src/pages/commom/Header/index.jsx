@@ -1,8 +1,7 @@
 import React from 'react'
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Input, Space } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
+import { Input } from 'antd';
 
 import history from '../../../utils/history'
 import '../Header/style.css'
@@ -48,7 +47,7 @@ function index() {
 							</a>
 						</li>
 						<li title="Giỏ hàng" className="cart-wrapp" >
-							<a href="/cart">
+							<Link onClick={()=>history.push("/cart")}>
 								<div className="center-icon">
 									<span><i className="far fa-shopping-cart"></i></span>
 								</div>
@@ -58,7 +57,20 @@ function index() {
 								<div className="number-cart ">
 									<span className="text-center render-number-cart"></span>
 								</div>
-							</a>
+							</Link>
+							<ul className="sub-cart-wrapp">
+								<li className="sub-cart-product">
+									<div className="pic-sub">
+										<img src="https://via.placeholder.com/50x50" alt="product"/>
+									</div>
+									<div className="info-cart-product">
+										<h3>Name Product</h3>
+										<div className="description-product">
+											<p>Description</p>
+										</div>
+									</div>
+								</li>
+							</ul>
 						</li>
 
 						{/* <li className="hover-user" title="Trang cá nhân">

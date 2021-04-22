@@ -6,7 +6,8 @@ footer {
 }
 .footer-list-top > li {
 	text-align: left;
-	padding-bottom: 0px
+	padding-bottom: 0px;
+	margin-top: 20px;
 }
 
 .footer-list-header {
