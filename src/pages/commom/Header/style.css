@@ -150,3 +150,29 @@ header{
 	font-size: 16px !important;
 	font-weight: 500 !important;
 }
+.cart-wrapp {
+	position: relative;
+}
+.sub-cart-wrapp {
+	visibility: hidden;
+	position: absolute;
+}
+.sub-cart-product {
+	display: flex;
+	align-items: center;
+	margin-left: 20px;
+}
+.info-cart-product {
+	margin-left: 20px;
+}
+.cart-wrapp:hover .sub-cart-wrapp {
+	visibility: visible;
+	background-color: white;
+	top: 100%;
+	width: 400px;
+	right: 0;
+	height: 70px;
+	transition: 0.5s;
+	border: none;
+	border-radius: 5px;
+}

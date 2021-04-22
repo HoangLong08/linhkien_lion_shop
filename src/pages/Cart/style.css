@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.cart-container {
+  min-height: 700px;
+}
+.cart-product {
+  border: 2px solid gray;
+  margin: 20px;
+  border-radius: 20px;
+  height: 100%;
+  position: relative;
+}
+.total {
+  margin: 20px;
+  position: sticky;
+  top: 80px;
+}
+.total h2 {
+  text-align: center;
+  font-weight: 30px;
+  font-size: 30px;
+}
+.info-total p {
+  margin-left: 10px;
+  font-weight: 500;
+}
+.money-total {
+  width: 100%;
+  border-top: 2px solid gray;
+}
+.money-total p {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.sign-in-submit{
+	color: white;
+	font-size: 18px;
+	text-align: center;
+  width: 100%;
+	border: 0;
+	outline: none;
+	border-radius: 14px;
+	/* background-color: rgb(34, 63, 156); */
+	background-image: linear-gradient(to right, rgb(219, 135, 8), rgb(165, 21, 76));
+	font-family: "Poppins", sans-serif;
+	cursor: pointer;
+	font-weight: 600;
+	/* box-shadow: 0 5px 10px 0 rgba(130, 201, 30, 0.5); */
+ }
+ .sub-cart-wrapp {
+  min-height: 80px;
+  width: 100%;
+  position: absolute; 
+ }
+ 
