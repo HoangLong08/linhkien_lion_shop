@@ -1,0 +1,77 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "tuan@gmail.com",
+      "password": "1234",
+      "use_name": "Tuan"
+    },
+    {
+      "id": 2,
+      "email": "tuan1@gmail.com",
+      "password": "4321",
+      "use_name": "Tuan 1"
+    },
+    {
+      "id": 3,
+      "email": "longnguyen.080400@gmail.com",
+      "password": "12345",
+      "use_name": "Long"
+    },
+    {
+      "id": 4,
+      "email": "quanglinh@gmail.com",
+      "password": "123456",
+      "use_name": "Linh"
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "id": 13
+    },
+    {
+      "id": 14
+    },
+    {
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "id": 17
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 12"
+    },
+    {
+      "id": 2,
+      "name": "iPhone 11"
+    }
+  ]
+}

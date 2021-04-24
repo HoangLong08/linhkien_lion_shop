@@ -1,4 +1,4 @@
-import { Row, Col, Card } from 'antd';
+import { Row, Col } from 'antd';
 import Header from "../commom/Header";
 import Footer from "../commom/Footer";
 import "./style.css";

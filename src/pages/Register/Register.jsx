@@ -75,7 +75,7 @@ function Register() {
 							<button className="sign-up-submit" type="submit">
 								Đăng ký
 							</button>
-							<p>Bạn đã có tài khoản <Link onClick = {()=>history.push(`/dang-nhap`)}>Đăng nhập</Link></p>
+							<p>Bạn đã có tài khoản <Link to ="/dang-nhap">Đăng nhập</Link></p>
 							
 						</div>
 						<div className="sign-up-or"><span></span></div>

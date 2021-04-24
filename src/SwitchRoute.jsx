@@ -3,14 +3,11 @@ import {Route, Router, Switch} from 'react-router-dom'
 
 import history from './utils/history'
 import Home from './pages/Home'
-<<<<<<< HEAD
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Cart from './pages/Cart'
-=======
+
 import Login from './pages/Login/Login.jsx'
-import Register from './pages/Register/Register'
->>>>>>> form
+import Register from './pages/Register/Register.jsx'
+import Cart from './pages/Cart'
+
 function SwitchRoute() {
 	return (
 		<Router history={history}>
