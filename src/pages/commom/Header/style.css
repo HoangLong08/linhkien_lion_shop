@@ -53,24 +53,11 @@ header{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.footer-main{
-	padding: 0 20px;
-}
-.footer-content{
-	padding: 20px;
-}
-.footer-logo{
-	width: 100px;
-	height: 100px;
-}
-.footer-logo img{
-	width: 100%;
-	height: 100%;
-}
+
 .container-header{
 	display: flex;
 	background-color: white;
-	height: 110%;
+
 	width: 100%;
 	align-items: center;
 	justify-content: space-around;
@@ -92,8 +79,8 @@ header{
 .header-menu li a {
 	display: inline-block;
 	color: #373941;
-	font-weight: bold;
-	padding: 20px;
+	font-weight: 600;
+	padding: 12px 16px;
 }
 .header-menu li a:hover{
 	color: #373941;
@@ -139,12 +126,23 @@ header{
 }
 .center-icon{
 	text-align: center;
-	font-size: 24px;
+	font-size: 20px;
 }
 
 .ant-btn-primary{
-	background-image: linear-gradient(to right, rgb(219, 135, 8), rgb(165, 21, 76)) !important;
+	background-image: linear-gradient(to right, rgba(219, 135, 8, 0.801), rgba(165, 21, 76, 0.89)) !important;
 	border-color: rgb(34, 63, 156) !important;
+}
+.ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused{
+	border-color: none !important; 
+   border-right-width: 1px !important;
+   outline: 0;
+	box-shadow: none !important;
+}
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+	border-color: none;
+	border-right-width: 0px !important;
+	z-index: 0;
 }
 .anticon{
 	font-size: 16px !important;

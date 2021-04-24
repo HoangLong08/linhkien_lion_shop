@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Link } from "react-router-dom";
+// import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
 import history from '../../utils/history';
@@ -8,9 +9,9 @@ import Header from '../commom/Header';
 import Footer from '../commom/Footer';
 import validation from './validation';
 
-import { loginTaskAction } from '../../redux/actions';
+import { loginAction } from '../../redux/actions';
 
-function Login() {
+function Login({loginTask}) {
 	const [values, setValues] = useState({
 		email: '',
 		password: ''
@@ -27,6 +28,7 @@ function Login() {
 	const handleSubmit = e => {
 		e.preventDefault();
 		setErrors(validation(values))
+		loginTask(values)
 	}
 
 	return (
@@ -66,7 +68,7 @@ function Login() {
 							<button className="sign-in-submit" type="submit">
 								Đăng nhập
 							</button>
-							<p>Bạn chưa có tài khoản <Link onClick={() => history.push(`/dang-ky`)}>Đăng ký</Link></p>
+							<p>Bạn chưa có tài khoản <Link to="/dang-ky">Đăng ký</Link></p>
 
 						</div>
 						<div className="sign-in-or"><span></span></div>
@@ -87,16 +89,9 @@ function Login() {
 	)
 }
 
-const mapStateToProps = (state) => {
-	const { toDoList } = state.taskReducer;
-	console.log("mapStateToProps: ", toDoList)
-	return {
-		toDoList: toDoList,
-	}
-};
 const mapDispatchToProps = (dispatch) => {
 	return {
-		loginTask: (params) => dispatch(loginTaskAction(params)),
+		loginTask: (params) => dispatch(loginAction(params)),
 	};
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Login)
