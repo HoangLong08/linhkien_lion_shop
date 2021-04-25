@@ -3,17 +3,12 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Input } from 'antd';
 
-import history from '../../../utils/history'
-
-
 import '../Header/style.css'
 import 'antd/dist/antd.css';
 const { Search } = Input;
 
 const onSearch = value => console.log(value);
 function index({ userInfo }) {
-	console.log("useInfo index: ",userInfo)
-	
 	return (
 		<>
 			<header>
@@ -76,8 +71,6 @@ function index({ userInfo }) {
 								</li>
 							</ul>
 						</li>
-
-						
 						{userInfo.data.id ?
 							(
 								<li title="Cá nhân">
@@ -87,7 +80,7 @@ function index({ userInfo }) {
 											<span><i className="far fa-user"></i></span>
 										</div>
 										<div className="scroll ">
-											<span >{userInfo.data.use_name}</span>
+											<span >{userInfo.data.userName}</span>
 										</div>
 									</Link>
 								</li>
