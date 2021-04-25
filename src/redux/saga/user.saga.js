@@ -17,13 +17,24 @@ function* loginSaga(action) {
     if (result.data.length > 0) {
       // console.log("result.config.params :",result.config.params);
       localStorage.setItem('userInfo', JSON.stringify(result.data[0]));
-      yield put({ // đợi rồi mới chạy
-        type: "LOGIN_SUCCESS",
-        payload: {
-          data: result.data[0],
-        },
-      });
-      yield history.push('/');
+      
+      if(result.data[0].admin) {
+        yield put({ // đợi rồi mới chạy
+          type: "LOGIN_SUCCESS",
+          payload: {
+            data: result.data[0],
+          },
+        });
+        yield history.push('/admin');
+      } else {
+        yield put({ // đợi rồi mới chạy
+          type: "LOGIN_SUCCESS",
+          payload: {
+            data: result.data[0],
+          },
+        });
+        yield history.push('/');
+      }
     } else {
       yield put({
         type: "LOGIN_FAIL",
@@ -77,7 +88,7 @@ function* registerSaga(action) {
       yield alert("Email đã tồn tại")
     }else{
       const result = yield axios.post('http://localhost:3001/users'
-      , {email, password, userName} )
+      , {email, password, userName, admin: false} )
       
       if (result.data) {
         console.log(result.data)

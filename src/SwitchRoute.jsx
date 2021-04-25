@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Login from './pages/Login/Login.jsx'
 import Register from './pages/Register/Register.jsx'
 import Cart from './pages/Cart'
+import Admin from './pages/Admin'
 
 function SwitchRoute() {
 	return (
@@ -16,6 +17,7 @@ function SwitchRoute() {
 				<Route exact path="/dang-nhap" component={Login}/>
 				<Route exact path="/dang-ky" component={Register}/>
 				<Route exact path="/cart" component={Cart}/>
+				<Route exact path="/admin" component={Admin}/>
 			</Switch>
 		</Router>
 	)
