@@ -21,3 +21,12 @@
 .banner img{
 	border-radius: 8px;
 }
+.banner-product{
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	background-color: white;
+	margin: 0 32px;
+	border-radius: 8px;
+	padding: 20px;
+}

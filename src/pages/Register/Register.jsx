@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import history from '../../utils/history';
+import { BrowserRouter as Link } from "react-router-dom";
+import { connect } from 'react-redux';
+// import history from '../../utils/history';
 import './style.css';
 import Header from '../commom/Header';
 import Footer from '../commom/Footer';
 import validation from './validation';
-function Register() {
+import { registerAction } from '../../redux/actions';
+
+function Register({registerTask}) {
 	const [values, setValues] = useState({
+		userName: '',
 		email: '',
 		password: '',
 		confirmPassword: ''
@@ -20,9 +24,16 @@ function Register() {
 			[name]: value
 		})
 	}	
+	
 	const handleSubmit = e => {
+		const{ userName, email, password, confirmPassword} = values;
 		e.preventDefault();
 		setErrors(validation(values))
+	
+		if(userName.length !== 0 && email.length !==0 && password.length!==0 && confirmPassword.length !== 0 && password === confirmPassword){
+			registerTask(values)
+		}
+		
 	}
 
 	return (
@@ -32,6 +43,19 @@ function Register() {
 				<div className="content-register">
 					<h1 className="sign-up-heading">Đăng ký</h1>
 					<form className="sign-up-form" onSubmit={handleSubmit}>
+						<div className="form-inputs">
+							<label htmlFor="userName" className="sign-up-label">User name</label>
+							<input
+								id="userName"
+								type="text"
+								name="userName"
+								className="sign-up-input"
+								placeholder="Nhập tên đăng nhập của bạn"
+								value ={values.userName}
+								onChange={handleChange}
+							/>
+							{errors.userName && <p className="error">{errors.userName}</p>}
+						</div>
 						<div className="form-inputs">
 							<label htmlFor="email" className="sign-up-label">Email</label>
 							<input
@@ -49,7 +73,7 @@ function Register() {
 							<label htmlFor="password" className="sign-up-label">Password</label>
 							<input
 								id="password"
-								type="text"
+								type="password"
 								name="password"
 								className="sign-up-input"
 								placeholder="Nhập mật khẩu của bạn"
@@ -62,7 +86,7 @@ function Register() {
 							<label htmlFor="password" className="sign-up-label">Confirm Password</label>
 							<input
 								id="confirmPassword"
-								type="text"
+								type="password"
 								name="confirmPassword"
 								className="sign-up-input"
 								placeholder="Xác nhận mật khẩu của bạn"
@@ -95,5 +119,10 @@ function Register() {
 	)
 }
 
-export default Register
+const mapDispatchToProps = (dispatch) => {
+	return {
+		registerTask: (params) => dispatch(registerAction(params)),
+	};
+}
+export default connect(null, mapDispatchToProps)(Register)
 

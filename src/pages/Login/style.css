@@ -146,6 +146,13 @@
 	/* box-shadow: 0 5px 10px 0 rgba(130, 201, 30, 0.5); */
 	margin: 15px 0;
  }
-.error{
+ .form-inputs .error{
 	color: red;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.btn .error{
+	color: red;
+	padding: 0 !important;
+	margin: 0 !important;
 }

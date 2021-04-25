@@ -2,12 +2,12 @@ import React from 'react'
 import { Carousel } from 'antd';
 import { Row, Col } from 'antd';
 import { Card } from 'antd';
-
+import { BrowserRouter as  Link } from "react-router-dom";
 import './style.css'
 import Header from '../commom/Header';
 import Footer from '../commom/Footer';
+import Item from '../commom/Item'
 
-const { Meta } = Card;
 function index() {
 	const contentStyle = {
 		color: '#fff',
@@ -44,62 +44,16 @@ function index() {
 				</Carousel>
 				
 				<div className="banner">
-					<a href="">
+					<Link to="https://images.fpt.shop/unsafe/fit-in/1200x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/4/15/637541252160464389_F-H5_1200x200.png">
 						<img src="https://images.fpt.shop/unsafe/fit-in/1200x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/4/15/637541252160464389_F-H5_1200x200.png" alt="" />
-					</a>
+					</Link>
 				</div>
 				
-				<div className="banner">
+				<div className="banner-product">
 					<div className="site-card-wrapper">
 						<Row gutter={16}>
-							<Col md={6}>
-								<a href="#">
-									<Card
-									hoverable
-									style={{ width: 240 }}
-									cover={<img alt="example" src="https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw" />}
-								>
-									<Meta title="Europe Street beat" description="www.instagram.com" />
-								</Card>,
-								</a>
-
-      					</Col>
-							<Col md={6}>
-								<a href="#">
-									<Card
-									hoverable
-									style={{ width: 240 }}
-									cover={<img alt="example" src="https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw" />}
-								>
-									<Meta title="Europe Street beat" description="www.instagram.com" />
-								</Card>,
-								</a>
-
-      					</Col>
-							<Col md={6}>
-								<a href="#">
-									<Card
-									hoverable
-									style={{ width: 240 }}
-									cover={<img alt="example" src="https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw" />}
-								>
-									<Meta title="Europe Street beat" description="www.instagram.com" />
-								</Card>,
-								</a>
-
-      					</Col>
-							<Col md={6}>
-								<a href="#">
-									<Card
-									hoverable
-									style={{ width: 240 }}
-									cover={<img alt="example" src="https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw" />}
-								>
-									<Meta title="Europe Street beat" description="www.instagram.com" />
-								</Card>,
-								</a>
-
-      					</Col>
+							
+							<Item/>
 						</Row>
 					</div>
 				</div>
@@ -109,7 +63,7 @@ function index() {
 						<img src="https://hoanghamobile.com/Uploads/2021/04/16/banner-iphone-12-mini-1200-140.gif" alt="" />
 					</a>
 				</div>
-				<div className="banner">
+				{/* <div className="banner">
 					<div className="site-card-wrapper">
 						<Row gutter={16}>
 							<Col md={6}>
@@ -124,45 +78,10 @@ function index() {
 								</a>
 
       					</Col>
-							<Col md={6}>
-								<a href="#">
-									<Card
-									hoverable
-									style={{ width: 240 }}
-									cover={<img alt="example" src="https://lh3.googleusercontent.com/o0VakvIDLSMwjmNMv_gugZ-8TA9GyNcCrAk8bBAvSEQLKXZAamqa9Hk5OXCHGNdBZd1Wdefpbd8qLB8vsHE=w500-rw" />}
-								>
-									<Meta title="Europe Street beat" description="www.instagram.com" />
-								</Card>,
-								</a>
-
-      					</Col>
-							<Col md={6}>
-								<a href="#">
-									<Card
-									hoverable
-									style={{ width: 240 }}
-									cover={<img alt="example" src="https://lh3.googleusercontent.com/o0VakvIDLSMwjmNMv_gugZ-8TA9GyNcCrAk8bBAvSEQLKXZAamqa9Hk5OXCHGNdBZd1Wdefpbd8qLB8vsHE=w500-rw" />}
-								>
-									<Meta title="Europe Street beat" description="www.instagram.com" />
-								</Card>,
-								</a>
-
-      					</Col>
-							<Col md={6}>
-								<a href="#">
-									<Card
-									hoverable
-									style={{ width: 240 }}
-									cover={<img alt="example" src="https://lh3.googleusercontent.com/o0VakvIDLSMwjmNMv_gugZ-8TA9GyNcCrAk8bBAvSEQLKXZAamqa9Hk5OXCHGNdBZd1Wdefpbd8qLB8vsHE=w500-rw" />}
-								>
-									<Meta title="Europe Street beat" description="www.instagram.com" />
-								</Card>,
-								</a>
-
-      					</Col>
+							
 						</Row>
 					</div>
-				</div>
+				</div> */}
 			</div>
 
 			<Footer />

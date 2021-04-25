@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 // import { BrowserRouter as Link } from "react-router-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as  Link } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import history from '../../utils/history';
+// import history from '../../utils/history';
 import './style.css'
 import Header from '../commom/Header';
 import Footer from '../commom/Footer';
@@ -11,13 +11,13 @@ import validation from './validation';
 
 import { loginAction } from '../../redux/actions';
 
-function Login({loginTask}) {
+function Login({loginTask, userInfo}) {
+	
 	const [values, setValues] = useState({
 		email: '',
 		password: ''
 	});
 	const [errors, setErrors] = useState({})
-
 	const handleChange = e => {
 		const { name, value } = e.target
 		setValues({
@@ -28,7 +28,10 @@ function Login({loginTask}) {
 	const handleSubmit = e => {
 		e.preventDefault();
 		setErrors(validation(values))
-		loginTask(values)
+		
+		if(values.email.length !== 0 && values.password.length){	
+			loginTask(values)
+		}
 	}
 
 	return (
@@ -56,7 +59,7 @@ function Login({loginTask}) {
 							<label htmlFor="password" className="sign-in-label">Password</label>
 							<input
 								id="password"
-								type="text"
+								type="password"
 								name="password"
 								className="sign-in-input"
 								placeholder="Nhập mật khẩu của bạn"
@@ -65,9 +68,11 @@ function Login({loginTask}) {
 							{errors.password && <p className="error">{errors.password}</p>}
 						</div>
 						<div className="btn">
+							<p className="error" style={{textAlign:"center"}}>{userInfo.error}</p>
 							<button className="sign-in-submit" type="submit">
 								Đăng nhập
 							</button>
+							
 							<p>Bạn chưa có tài khoản <Link to="/dang-ky">Đăng ký</Link></p>
 
 						</div>
@@ -88,10 +93,16 @@ function Login({loginTask}) {
 		</>
 	)
 }
-
+const mapStateToProps = (state) => {
+	const { userInfo } = state.userReducer;
+	// console.log('userInfo: ', userInfo);
+	return {
+		userInfo,
+	}
+};
 const mapDispatchToProps = (dispatch) => {
 	return {
 		loginTask: (params) => dispatch(loginAction(params)),
 	};
 }
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
