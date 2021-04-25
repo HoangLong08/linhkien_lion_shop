@@ -4,50 +4,31 @@
       "id": 1,
       "email": "tuan@gmail.com",
       "password": "1234",
-      "userName": "Tuan"
+      "userName": "Tuan",
+      "admin": true
     },
     {
       "id": 2,
       "email": "tuan1@gmail.com",
       "password": "4321",
-      "userName": "Tuan 1"
+      "userName": "Tuan 1",
+      "admin": false
     },
     {
       "id": 3,
       "email": "longnguyen.080400@gmail.com",
       "password": "12345",
-      "userName": "Long"
+      "userName": "Long",
+      "admin": false
     },
     {
       "id": 4,
       "email": "quanglinh@gmail.com",
       "password": "123456",
-      "userName": "Linh"
-    },
-    {
-      "email": "long@gmail.com",
-      "password": "123",
-      "userName": "long",
-      "id": 5
-    },
-    {
-      "email": "long@gmail.com",
-      "password": "123",
-      "userName": "long",
-      "id": 6
-    },
-    {
-      "email": "long@gmail.com",
-      "password": "123",
-      "userName": "long",
-      "id": 7
-    },
-    {
-      "email": "Tan_Binh@gmail.com",
-      "password": "123",
-      "userName": "long",
-      "id": 8
+      "userName": "Linh",
+      "admin":false
     }
+    
   ],
   "products": [
     {
