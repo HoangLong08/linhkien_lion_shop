@@ -4,3 +4,9 @@ export function getProductListAction(params) {
     payload: params,
   }
 }
+export function addProductAction(params) {
+  return {
+    type: 'ADD_PRODUCT_REQUEST',
+    payload: params,
+  }
+}

@@ -1,29 +1,20 @@
 import { connect } from 'react-redux';
 import Header from '../commom/Header';
 import './style.css';
-
+import ItemCart from './item';
+import { Col, Row } from 'antd';
+import { addProductAction } from '../../redux/actions'
 
 function index({ productList }){
   
-  const { name, price } = productList.data[0]
+  
+
+  // const { name, price } = productList.data[0]
 
   function renderProduct() {
-  
-    return (
-      <div className="box-product">
-        <div className="img-product">
-          <img src="https://via.placeholder.com/100x100"/>
-        </div>
-        <div className="des-product">
-          <div>Name: {name}</div>
-          <div>Prize: {price}</div>
-        </div>
-        <div className="btn-product">
-          <button>Edit</button>
-          <button>Remove</button>
-        </div>
-      </div>
-    )
+    return productList.data.map((item) => {
+      return <ItemCart id={item.id} name={item.name} price={item.price}/>
+    })
   }
     
   
@@ -31,7 +22,12 @@ function index({ productList }){
     <>
       <Header/>
       <div className="admin-container">
-        {renderProduct()}
+        <div className='add-product'>
+          <button>ADD PRODUCT</button>
+        </div>
+        <Row gutter={12}>
+          {renderProduct()}
+        </Row>
       </div>
     </>
   )
@@ -43,5 +39,7 @@ const mapStateToProps = (state) => {
     productList,
   }
 }
+
+
 
 export default connect(mapStateToProps,null) (index);
