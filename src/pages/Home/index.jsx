@@ -8,7 +8,7 @@ import Header from '../commom/Header';
 import Footer from '../commom/Footer';
 import Item from '../commom/Item'
 
-function index() {
+function index({productList}) {
 	const contentStyle = {
 		color: '#fff',
 		lineHeight: '160px',

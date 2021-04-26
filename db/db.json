@@ -23,52 +23,32 @@
       "email": "quanglinh@gmail.com",
       "password": "123456",
       "userName": "Linh"
-    },
-    {
-      "email": "long@gmail.com",
-      "password": "123",
-      "userName": "long",
-      "id": 5
-    },
-    {
-      "email": "long@gmail.com",
-      "password": "123",
-      "userName": "long",
-      "id": 6
-    },
-    {
-      "email": "long@gmail.com",
-      "password": "123",
-      "userName": "long",
-      "id": 7
-    },
-    {
-      "email": "Tan_Binh@gmail.com",
-      "password": "123",
-      "userName": "long",
-      "id": 8
     }
   ],
   "products": [
     {
       "id": 1,
       "name": "iPhone 12",
-      "price": "21000000"
+      "price": "21000000",
+      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
     },
     {
       "id": 2,
       "name": "iPhone 11",
-      "price": "16000000"
+      "price": "16000000",
+      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
     },
     {
       "id": 3,
       "name": "Sam sung",
-      "price": "11000000"
+      "price": "11000000",
+      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
     },
     {
       "id": 4,
       "name": "Red mi",
-      "price": "6500000"
+      "price": "6500000",
+      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
     }
   ]
 }
