@@ -11,8 +11,6 @@ export function getUserInfoAction(params) {
     }
 }
 export function registerAction(params) {
-
-    console.log("params: ", params)
     return {
         type: 'REGISTER_REQUEST',
         payload: params,

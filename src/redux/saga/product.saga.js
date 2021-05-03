@@ -1,8 +1,8 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { getProductListAction } from '../actions/product.action';
 
-function* getProductListSaga(action) {
+
+function* getProductListSaga() {
   try {
     // const { page, limit } = action.payload;
     const result = yield axios({
@@ -25,28 +25,67 @@ function* getProductListSaga(action) {
   }
 }
 
-// function* getProductDetailSaga(action) {
-//   try {
-//     //  const user = yield call(Api.fetchUser, action.payload.userId);
-//     yield put({type: "GET_PRODUCT_DETAIL_SUCCESS", user: 'user'});
-//   } catch (e) {
-//     yield put({type: "GET_PRODUCT_DETAIL_FAIL", message: e.message});
-//   }
-// }
+function* getProductDetailSaga(action) {
+  try {
+    const { id } = action.payload;
+    const result = yield axios({
+      method: 'GET',
+      url: `http://localhost:3001/products/${id}`,
+      params: {
+        _embed: 'productOptions',
+        // _expand: 'category'
+      }
+    });
+    yield put({
+      type: "GET_PRODUCT_DETAIL_SUCCESS",
+      payload: {
+        data: result.data,
+      },
+    });
+  } catch (e) {
+    yield put({type: "GET_PRODUCT_DETAIL_FAIL", message: e.message});
+  }
+}
+
+function* getProductListSameSaga(action) {
+  try {
+    
+    const { categoryId } = action.payload;
+    console.log("categoryId saga: ", categoryId)
+    const result = yield axios({
+      method: 'GET',
+      url: `http://localhost:3001/products?categoryId=${categoryId}`
+    });
+    console.log("result list product: ", result)
+    yield put({
+      type: "GET_PRODUCT_SAME_SUCCESS",
+      payload: {
+        data: result.data
+      },
+    });
+  } catch (e) {
+    yield put({
+      type: "GET_PRODUCT_SAME_FAIL",
+      payload: {
+        error: e.error
+      },
+    });
+  }
+}
+
 function* addProductSaga(action) {
    try {
     const { price, name } = action.payload;
     const result = yield axios.post('http://localhost:3001/products', {name, price})
     if (result.data) {
-      console.log(result.data)
       yield put({ // đợi rồi mới chạy
         type: "ADD_PRODUCT_SUCCESS",
         payload: {
           // data: result.data[0],
-          data: result.data,
+          // data: result.data,
         },
       });
-      yield alert("Thành công");
+      // yield alert("Thành công");
     } else {
       yield put({
         type: "ADD_PRODUCT_FAIL",
@@ -66,6 +105,7 @@ function* addProductSaga(action) {
 }
 export default function* productSaga() {
   yield takeEvery('GET_PRODUCT_LIST_REQUEST', getProductListSaga);
+  yield takeEvery('GET_PRODUCT_DETAIL_REQUEST', getProductDetailSaga);
+  yield takeEvery('GET_PRODUCT_SAME_REQUEST', getProductListSameSaga);
   yield takeEvery('ADD_PRODUCT_REQUEST', addProductSaga);
-  // yield takeEvery('GET_PRODUCT_DETAIL_REQUEST', getProductDetailSaga);
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Input } from 'antd';
 
 import '../Header/style.css'
@@ -16,7 +16,7 @@ function index({ userInfo }) {
 					<Link to="/">
 						<div className="brand">
 							<div className="brand-img">
-								<img src="https://cdn.thukyluat.vn/nhch-images//CauHoi_Hinh/9eb6abaa-8cda-456c-ad66-26ba4da23ffe.jpg?fbclid=IwAR0t7ycFiSjYHuDoezWnRRuzVWsLYvRYPvxXjGfgVoXxfCzuoeECKgR-EWM" alt="" />
+								<img src="https://cdn.thukyluat.vn/nhch-images//CauHoi_Hinh/9eb6abaa-8cda-456c-ad66-26ba4da23ffe.jpg?fbclid=IwAR0t7ycFiSjYHuDoezWnRRuzVWsLYvRYPvxXjGfgVoXxfCzuoeECKgR-EWM" alt="logo" />
 							</div>
 							<div className="brand-name">
 								<h1>LION</h1>
@@ -36,17 +36,17 @@ function index({ userInfo }) {
 					</div>
 					<ul className="header-menu">
 						<li title="Liên hệ">
-							<a href="/orders">
+							<Link to="/lien-he">
 								<div className="center-icon">
 									<span><i className="far fa-phone"></i></span>
 								</div>
 								<div className="scroll ">
-									<span >Đơn hàng</span>
+									<span >Liên hệ</span>
 								</div>
-							</a>
+							</Link>
 						</li>
 						<li title="Giỏ hàng" className="cart-wrapp" >
-							<Link to="/cart">
+							<Link to="/gio-hang">
 								<div className="center-icon">
 									<span><i className="far fa-shopping-cart"></i></span>
 								</div>
@@ -120,7 +120,7 @@ function index({ userInfo }) {
 }
 const mapStateToProps = (state) => {
 	const { userInfo } = state.userReducer;
-	console.log('userInfo: ', userInfo);
+	// console.log('userInfo: ', userInfo);
 	return {
 		userInfo,
 	}
