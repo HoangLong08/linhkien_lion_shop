@@ -4,7 +4,22 @@ export function getProductListAction(params) {
     payload: params,
   }
 }
-export function addProductAction(params) {
+
+export function getProductDetailAction(params){
+  return {
+    type: 'GET_PRODUCT_DETAIL_REQUEST',
+    payload: params
+  }
+}
+export function getProductSameAction(params) {
+  return {
+    type: 'GET_PRODUCT_SAME_REQUEST',
+    payload: params,
+  }
+}
+
+export function addProductCartAction(params) {
+  console.log("params: ", params)
   return {
     type: 'ADD_PRODUCT_REQUEST',
     payload: params,

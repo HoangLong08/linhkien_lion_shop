@@ -1,20 +1,23 @@
 import React from 'react'
-import { Card, Col} from 'antd';
+import { Card} from 'antd';
+import { Link } from 'react-router-dom';
 const { Meta } = Card;
-function index() {
+
+function index(props) {
+	const {id, name, price, image} = props;
 	return (
-		<Col md={6}>
-			<a href="#">
+		<>
+			<Link to={`/product/${id}`}>
 				<Card
 				hoverable
 				style={{ width: 240 }}
-				cover={<img alt="example" src="https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw" />}
+				cover={<img alt={name} src={image} />}
 			>
-				<Meta title="Europe Street beat" description="www.instagram.com" />
+				<Meta title={name} description={price && price.toLocaleString('vi', { style: 'currency', currency: 'VND' })}  />
 			</Card>,
-			</a>
+			</Link>
 
-		</Col>
+		</>
 	)
 }
 

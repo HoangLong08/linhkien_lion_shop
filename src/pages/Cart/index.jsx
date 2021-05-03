@@ -6,47 +6,65 @@ function index() {
   return (
     <>
       <Header />
-      <Row justify='center' className="cart-container">
-        <Col span={16}>
-          <div className="cart-product">
-            <ul className="sub-cart-wrapp">
-              <li className="sub-cart-product">
-                <div className="pic-sub">
-                  <img src="https://via.placeholder.com/100x100" alt="product" />
+      <div className="wrap-cart">
+        <Row justify='center' className="content-cart" gutter={[16, 16]}>
+          <Col span={16}>
+            <h2>Giỏ hàng của bạn</h2>
+            <div className="list-cart-product">
+              
+              <div className="cart-product">
+                <div className="cart-image"  height="80" width="80">
+                  <img className="lazyload" alt="product" src="https://phongvu.vn/api/products/201000613/default_image" loading="lazy" decoding="async"/>
                 </div>
-                <div className="info-cart-product">
-                  <h3>Name Product</h3>
-                  <div className="description-product">
-                    <p>Description</p>
-                  </div>
+                <div className="cart-name">
+                  <p>Điện Thoại Di Động iPhone 12 64GB Black MGJ53VN/A</p>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </Col>
-        <Col span={8}>
-          <div className="total">
-            <h2>Thanh toán</h2>
-            <div className="info-total">
-              <Row>
-                <Col span={8}><p>Tạm tính:</p></Col>
-                <Col span={16}></Col>
-                <Col span={8}><p>Khuyến mãi:</p></Col>
-                <Col span={16}></Col>
-                <Col span={8}><p>Thuế:</p></Col>
-                <Col span={16}></Col>
-                <div className="money-total">
-                  <Col span={8}><p>Thành tiền:</p></Col>
-                  <Col span={16}></Col>
-                  <button className="sign-in-submit" type="submit">
-                    Thanh toán
-							    </button>
+                <div className="cart-quanty">
+                 
+                  <button className="btn-quantity">
+                    <span >{1 === 1 ? (<i className="fal fa-trash-alt"></i>) : "-"}</span>
+                  </button>
+                  <input type="number" className="content-quantity" value="2" readOnly />
+                  <button className="btn-quantity">
+                    <span>+</span>
+                  </button>
+                 
                 </div>
-              </Row>
+                <div className="cart-price">
+                 <p>26000000</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </Col>
-      </Row>
+          </Col>
+          <Col span={8}>
+            <h2>Thanh toán</h2>
+            <div className="content-payment">
+             
+              <div className="info-payment">
+                <div>
+                  <p>Tạm tính</p>
+                  <p>123100000</p>
+                </div>
+                <div>
+                  <p>Phí vận chuyển</p>
+                  <p>123200000</p>
+                </div>
+                <div>
+                  <p>Khuyến mãi</p>
+                  <p>123200000</p>
+                </div>
+                <div>
+                  <p>Thành tiền</p>
+                  <p className="sumary-money">123200000</p>
+                </div>
+                <button className="btn-payment">
+                  Thanh toán ngay
+                </button>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </div>
       <Footer />
     </>
   )

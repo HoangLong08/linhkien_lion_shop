@@ -79,17 +79,17 @@ function index() {
 							<li>
 								<Row >
 									<Col md={8}>
-										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/visa.svg" alt=""/>
-										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/jcb.svg" alt=""/>
+										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/visa.svg" alt="hihi"/>
+										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/jcb.svg" alt="hihi"/>
 									</Col>
 									<Col md={8}>
-										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/mastercard.svg" alt=""/>
+										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/mastercard.svg" alt="hihi"/>
 										
-										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/installment.svg" alt=""/>
+										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/installment.svg" alt="hihi"/>
 									</Col>
 									<Col md={8}>
-										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/cash.svg" alt=""/>
-										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/internet-banking.svg" alt=""/>
+										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/cash.svg" alt="hihi"/>
+										<img src="https://frontend.tikicdn.com/_desktop-next/static/img/footer/internet-banking.svg" alt="hihi"/>
 										
 									</Col>
 								</Row>

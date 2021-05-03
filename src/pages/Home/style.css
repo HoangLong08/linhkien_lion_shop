@@ -24,7 +24,7 @@
 .banner-product{
 	display: flex;
 	align-items: center;
-	justify-content: start;
+	justify-content: flex-start;
 	background-color: white;
 	margin: 0 32px;
 	border-radius: 8px;

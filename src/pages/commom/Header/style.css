@@ -40,7 +40,6 @@ header{
 	box-shadow: 0 4px 6px 0 rgba(202, 197, 197, 0.5);
 }
 .brand{
-	/* width: 200px; */
 	display: flex;
 }
 .brand img{
