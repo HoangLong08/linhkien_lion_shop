@@ -55,80 +55,59 @@ export default function productReducer(state = initialState, action) {
         },
       }
     }
-    case 'GET_PRODUCT_DETAIL_REQUEST': {
+    case 'ADD_PRODUCT_ADMIN_REQUEST': {
       return {
         ...state,
-        productDetail: {
-          ...state.productDetail,
+        productList: {
+          ...state.productList,
           load: true,
-        },
+        }
       }
     }
-    case 'GET_PRODUCT_DETAIL_SUCCESS': {
-      const { data } = action.payload;
+    case 'ADD_PRODUCT_ADMIN_SUCCESS': {
+      const { data } = action.payload
       return {
         ...state,
-        productDetail: {
-          ...state.productDetail,
-          data: data,
+        productList: {
+          ...state.productList,
           load: false,
-        },
+          data: data
+        }
       }
     }
-    case 'GET_PRODUCT_DETAIL_FAIL': {
-      const { error } = action.payload;
+    case 'ADD_PRODUCT_ADMIN_FAIL': {
+      const { error } = action.payload
       return {
         ...state,
-        productDetail: {
-          ...state.productDetail,
+        productList: {
+          ...state.productList,
           load: false,
-          error: error,
-        },
+          error: error
+        }
       }
     }
-    case 'GET_PRODUCT_SAME_REQUEST': {
+    case 'EDIT_PRODUCT_ADMIN_REQUEST': {
       return {
         ...state,
-        productListSame: {
-          ...state.productListSame,
+        productList: {
+          ...state.productList,
           load: true,
-        },
+        }
       }
     }
-    case 'GET_PRODUCT_SAME_SUCCESS': {
-      const { data } = action.payload;
-      console.log("state product reducer: ", data)
+    case 'EDIT_PRODUCT_ADMIN_SUCCESS': {
+      const { id, name, price } = action.payload
+      const newProductList = state.productList
+      newProductList.data.splice(id, 1, {name: name, price: price})
       return {
         ...state,
-        productListSame: {
-          ...state.productListSame,
-          data: data,
+        productList: {
+          ...newProductList,
           load: false,
-        },
+          data: newProductList.data
+        }
       }
     }
-    case 'GET_PRODUCT_SAME_FAIL': {
-      const { error } = action.payload;
-      return {
-        ...state,
-        productListSame: {
-          ...state.productListSame,
-          load: false,
-          error: error,
-        },
-      }
-    }
-
-    case 'ADD_PRODUCT_REQUEST': {
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          load: true,
-        },
-      }
-    }
-
     default: {
       return state;
     }
