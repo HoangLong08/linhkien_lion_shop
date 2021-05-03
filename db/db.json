@@ -91,5 +91,12 @@
       "memory": "256GB",
       "price": 5000000
     }
+    ,
+    {
+      "id": 7,
+      "productId": 3,
+      "memory": "64GB",
+      "price": 0
+    }
   ]
 }
