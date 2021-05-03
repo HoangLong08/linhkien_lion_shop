@@ -94,8 +94,8 @@ input:focus-visible {
 .content-payment{
   background-color: white;
   border-radius: 8px;
-  position: sticky !important;
-  top: 0px !important;
+  position: sticky ;
+  top: 0px ;
 }
 .content-payment h2{
   margin-bottom: 20px !important;
