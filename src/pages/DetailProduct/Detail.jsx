@@ -19,7 +19,7 @@ function Detail({ productDetail, productListSame, getProductDetail, getProductSa
 	// console.log("getProductDetail: ", categoryId);
 	const { image, name, price, categoryId } = productDetail.data;
 	// console.log("productListSame: ", productListSame)
-
+//console.log("productListSame: ", productListSame)
 	const productId = match.params.id;
 	const [optionSelected, setOptionSelected] = useState({});
 
