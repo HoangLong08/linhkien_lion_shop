@@ -14,7 +14,7 @@
 }
 .btn-product button {
   margin: 5px;
-  width: 100px;
+  width: 70px;
   border: none;
   border-radius: 8px;
   background-color: #5858FA;
@@ -23,10 +23,11 @@
 }
 .add-product {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 20px;
+  margin: 10px;
   align-items: center;
-  height: 100px;
+  height: 70px;
 }
 .add-product button {
   width: 150px;
@@ -37,4 +38,16 @@
   background-color: tomato;
   color: white;
   font-weight: bold;
+}
+.img-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-add {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }

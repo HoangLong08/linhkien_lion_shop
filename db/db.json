@@ -13,13 +13,26 @@
       "password": "4321",
       "userName": "Tuan 1",
       "admin": false
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 12",
+      "categoryId": 1,
+      "price": 18000000
+    },
+    {
+      "id": 2,
+      "name": "iPhone 11",
+      "categoryId": 1,
+      "price": 12000000
     },
     {
       "id": 3,
-      "email": "longnguyen.080400@gmail.com",
-      "password": "12345",
-      "userName": "Long",
-      "admin": false
+      "name": "Samsung Note 20",
+      "categoryId": 2,
+      "price": 18500000
     },
     {
       "id": 4,
@@ -29,7 +42,7 @@
       "admin": false
     }
   ],
-  "products": [
+  "categories": [
     {
       "id": 1,
       "name": "IPhone 12",

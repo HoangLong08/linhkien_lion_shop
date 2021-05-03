@@ -9,7 +9,7 @@ import Header from '../commom/Header';
 import Footer from '../commom/Footer';
 import validation from './validation';
 
-import { loginAction, getProductListAction } from '../../redux/actions';
+import { loginAction } from '../../redux/actions';
 
 
 function Login({loginTask, userInfo, getProductList}) {
@@ -32,7 +32,6 @@ function Login({loginTask, userInfo, getProductList}) {
 		
 		if(values.email.length !== 0 && values.password.length){	
 			loginTask(values)
-			getProductList()
 		}
 	}
 
@@ -104,8 +103,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
 	return {
-		loginTask: (params) => dispatch(loginAction(params)),
-		getProductList: (params) => dispatch(getProductListAction(params))
+		loginTask: (params) => dispatch(loginAction(params))
 	};
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

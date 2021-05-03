@@ -25,3 +25,15 @@ export function addProductCartAction(params) {
     payload: params,
   }
 }
+export function editProductAction(params) {
+  return {
+    type: 'EDIT_PRODUCT_REQUEST',
+    payload: params,
+  }
+}
+export function removeProductAction(params) {
+  return {
+    type: 'REMOVE_PRODUCT_REQUEST',
+    payload: params,
+  }
+}

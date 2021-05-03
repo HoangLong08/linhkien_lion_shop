@@ -3,7 +3,7 @@ import axios from 'axios';
 import history from '../../utils/history';
 
 function* loginSaga(action) {
-  // console.log("action: ", action);
+ 
   try {
     const { email, password } = action.payload;
     const result = yield axios({
@@ -15,7 +15,7 @@ function* loginSaga(action) {
       }
     });
     if (result.data.length > 0) {
-      // console.log("result.config.params :",result.config.params);
+    
       localStorage.setItem('userInfo', JSON.stringify(result.data[0]));
       
       if(result.data[0].admin) {
@@ -74,7 +74,6 @@ function* getUserInfoSaga(action) {
 }
 
 function* registerSaga(action) {
-  console.log("saga action register: ", action);
   try {
     const { email, password, userName } = action.payload;
     
@@ -91,7 +90,6 @@ function* registerSaga(action) {
       , {email, password, userName, admin: false} )
       
       if (result.data) {
-        console.log(result.data)
         yield put({ // đợi rồi mới chạy
           type: "REGISTER_SUCCESS",
           payload: {
@@ -109,7 +107,6 @@ function* registerSaga(action) {
         });
       }
     }
-
   } catch (e) {
     yield put({
       type: "REGISTER_FAIL",
@@ -119,6 +116,7 @@ function* registerSaga(action) {
     });
   }
 }
+
 
 
 export default function* userSaga() {

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function* getProductListSaga() {
   try {
-    // const { page, limit } = action.payload;
+    //const { page, limit } = action.payload;
     const result = yield axios({
       method: 'GET',
       url: 'http://localhost:3001/products'
@@ -103,9 +103,39 @@ function* addProductSaga(action) {
     });
    }
 }
+
+function* editProductSaga (action) {
+  try {
+    const {name,price,id} = action.payload
+    const result = yield axios.post(`http://localhost:3001/products/${id}`, {name, price})
+    if(result.data){
+      yield put({
+        type: 'EDIT_PRODUCT_SUCCESS',
+        payload: result.data
+      })
+    } else {
+      yield put({
+        type: 'EDIT_PRODUCT_FAIL',
+        payload: {
+          error: 'FAIL'
+        }
+      })
+    }
+    } catch(e) {
+      yield put({
+        type: 'EDIT_PRODUCT_FAIL',
+        payload: {
+          error :e.error
+        }
+      })
+    }
+}
+
 export default function* productSaga() {
   yield takeEvery('GET_PRODUCT_LIST_REQUEST', getProductListSaga);
   yield takeEvery('GET_PRODUCT_DETAIL_REQUEST', getProductDetailSaga);
   yield takeEvery('GET_PRODUCT_SAME_REQUEST', getProductListSameSaga);
   yield takeEvery('ADD_PRODUCT_REQUEST', addProductSaga);
+  yield takeEvery('EDIT_PRODUCT_REQUEST', editProductSaga);
+  // yield takeEvery('GET_PRODUCT_DETAIL_REQUEST', getProductDetailSaga);
 }
