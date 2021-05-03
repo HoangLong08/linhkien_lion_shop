@@ -55,7 +55,7 @@ export default function productReducer(state = initialState, action) {
         },
       }
     }
-    case 'ADD_PRODUCT_REQUEST': {
+    case 'ADD_PRODUCT_ADMIN_REQUEST': {
       return {
         ...state,
         productList: {
@@ -64,7 +64,7 @@ export default function productReducer(state = initialState, action) {
         }
       }
     }
-    case 'ADD_PRODUCT_SUCCESS': {
+    case 'ADD_PRODUCT_ADMIN_SUCCESS': {
       const { data } = action.payload
       return {
         ...state,
@@ -75,7 +75,7 @@ export default function productReducer(state = initialState, action) {
         }
       }
     }
-    case 'ADD_PRODUCT_FAIL': {
+    case 'ADD_PRODUCT_ADMIN_FAIL': {
       const { error } = action.payload
       return {
         ...state,
@@ -86,7 +86,7 @@ export default function productReducer(state = initialState, action) {
         }
       }
     }
-    case 'EDIT_PRODUCT_REQUEST': {
+    case 'EDIT_PRODUCT_ADMIN_REQUEST': {
       return {
         ...state,
         productList: {
@@ -95,7 +95,7 @@ export default function productReducer(state = initialState, action) {
         }
       }
     }
-    case 'EDIT_PRODUCT_SUCCESS': {
+    case 'EDIT_PRODUCT_ADMIN_SUCCESS': {
       const { id, name, price } = action.payload
       const newProductList = state.productList
       newProductList.data.splice(id, 1, {name: name, price: price})

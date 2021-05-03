@@ -35,83 +35,9 @@
       "price": 18500000
     },
     {
-      "id": 4,
-      "email": "quanglinh@gmail.com",
-      "password": "123456",
-      "userName": "Linh",
-      "admin": false
-    }
-  ],
-  "categories": [
-    {
-      "id": 1,
-      "name": "IPhone 12",
-      "price": 21000000,
-      "categoryId": 1,
-      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
-    },
-    {
-      "id": 2,
-      "name": "IPhone 11",
-      "price": 16000000,
-      "categoryId": 1,
-      "image": "https://lh3.googleusercontent.com/RY1rFbh0pTtJn5HBawCuLOndCGh3cc_6bdzqDwOABYuGhjEFEwx2bOYL4PFMF6uer6l1pRZglgEI8uBZZ2xaCFeBybFxJgeG",
-      "image1": "https://lh3.googleusercontent.com/5mv5113dAWEcQj_nNZLsXn2bmPZyiY8JTTkw66-vIyQP0CEPqewdZP_frTQr5Cp1LjU7PFVSl6tzKSvqHUMmo0UyPxAKGac"
-    },
-    {
-      "id": 3,
-      "name": "Sam sung j7 pro",
-      "price": 11000000,
-      "categoryId": 1,
-      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
-    },
-    {
-      "id": 4,
-      "name": "Red mi",
-      "price": 6500000,
-      "categoryId": 1,
-      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
-    },
-    {
-      "id": 5,
-      "name": "iPhone 12 pro max",
-      "price": 21000000,
-      "categoryId": 2,
-      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
-    },
-    {
-      "id": 6,
-      "name": "iPhone 11 pro max",
-      "price": 16000000,
-      "categoryId": 2,
-      "image": "https://lh3.googleusercontent.com/RY1rFbh0pTtJn5HBawCuLOndCGh3cc_6bdzqDwOABYuGhjEFEwx2bOYL4PFMF6uer6l1pRZglgEI8uBZZ2xaCFeBybFxJgeG",
-      "image1": "https://lh3.googleusercontent.com/5mv5113dAWEcQj_nNZLsXn2bmPZyiY8JTTkw66-vIyQP0CEPqewdZP_frTQr5Cp1LjU7PFVSl6tzKSvqHUMmo0UyPxAKGac"
-    },
-    {
-      "id": 7,
-      "name": "Sam sung S+",
-      "price": 11000000,
-      "categoryId": 2,
-      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
-    },
-    {
-      "id": 8,
-      "name": "Red mi pro max",
-      "price": 6500000,
-      "categoryId": 2,
-      "image": "https://lh3.googleusercontent.com/T3osX9Kh8ESsdiXB3bN1SSvbP5lCta7ZpXrySQ_9bzzwX_a4hqXk35cDrgALyRriKzzl3AEf-J_GHQ2J2m8=w500-rw"
-    },
-    {
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
+      "name": "linh",
+      "price": "123",
+      "id": 4
     }
   ],
   "categories": [
