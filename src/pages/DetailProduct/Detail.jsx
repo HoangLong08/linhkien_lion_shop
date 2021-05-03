@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { getProductDetailAction, getProductSameAction, addProductCartAction } from '../../redux/actions';
+import { getProductDetailAction, getProductSameAction } from '../../redux/actions';
 import Header from '../commom/Header';
 import Footer from '../commom/Footer';
 import Item from '../commom/Item';
 import history from '../../utils/history';
 import './style.css'
 
-function Detail({ productDetail, productListSame, getProductDetail, getProductSame, addToCart, match }) {
+function Detail({ productDetail, productListSame, getProductDetail, getProductSame, match }) {
 	// console.log("productDetail: ", productDetail) // url 
 	// console.log("getProductDetail: ", categoryId);
-	const {id, image, name, price, categoryId } = productDetail.data;
+	const { image, name, price, categoryId } = productDetail.data;
 	// console.log("productListSame: ", productListSame)
 //console.log("productListSame: ", productListSame)
 	const productId = match.params.id;
@@ -127,7 +128,7 @@ function Detail({ productDetail, productListSame, getProductDetail, getProductSa
 													<button className="btn btn-buy" onClick={() => history.push(`/gio-hang`)}>Mua ngay</button>
 												</Col>
 												<Col md={12}>
-													<button className="btn btn-cart" onClick={() => addToCart(id)}>Thêm giỏ hàng</button>
+													<button className="btn btn-cart">Thêm giỏ hàng</button>
 												</Col>
 											</Row>
 
@@ -229,8 +230,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		getProductDetail: (params) => dispatch(getProductDetailAction(params)),
-		getProductSame  : (params) => dispatch(getProductSameAction(params)),
-		addToCart: (params) => dispatch(addProductCartAction(params))
+		getProductSame  : (params) => dispatch(getProductSameAction(params))
 	};
 }
 

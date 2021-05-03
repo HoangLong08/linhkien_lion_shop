@@ -1,14 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
-import { Input } from 'antd';
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Input, Popover, Button } from 'antd';
+import { getUserInfoAction } from '../../../redux/actions'
+import { logoutAction } from '../../../redux/actions'
+import history from '../../../utils/history'
 import '../Header/style.css'
 import 'antd/dist/antd.css';
 const { Search } = Input;
 
 const onSearch = value => console.log(value);
-function index({ userInfo }) {
+function Header({ userInfo, logout }) {
+
+	const contentCart = (
+  <div className="sub-cart">
+    <div className="img-sub">
+			<img src="https://via.placeholder.com/50x50" alt="pic"/>
+		</div>
+		<div className="description-sub">
+			<div>Name</div>
+			<div>Description</div>
+		</div>
+  </div>
+	);
+	const contentUser = (
+		<div className="sub-user">
+			<div>Information User</div>
+			<Button onClick={() => logOut()}>
+				<div>Log Out</div>
+			</Button>
+		</div>
+	)
+	function logOut(){
+		history.replace({ pathname: '/'})
+		localStorage.clear()
+		logout()
+	}
+
 	return (
 		<>
 			<header>
@@ -35,76 +63,61 @@ function index({ userInfo }) {
 						/>
 					</div>
 					<ul className="header-menu">
-						<li title="Liên hệ">
-							<Link to="/lien-he">
-								<div className="center-icon">
-									<span><i className="far fa-phone"></i></span>
-								</div>
-								<div className="scroll ">
-									<span >Liên hệ</span>
-								</div>
-							</Link>
-						</li>
 						<li title="Giỏ hàng" className="cart-wrapp" >
-							<Link to="/gio-hang">
-								<div className="center-icon">
-									<span><i className="far fa-shopping-cart"></i></span>
-								</div>
-								<div className="scroll ">
-									<span >Giỏ hàng</span>
-								</div>
-								<div className="number-cart ">
-									<span className="text-center render-number-cart"></span>
-								</div>
-							</Link>
-							<ul className="sub-cart-wrapp">
-								<li className="sub-cart-product">
-									<div className="pic-sub">
-										<img src="https://via.placeholder.com/50x50" alt="product" />
+							<Popover className="btn-hover-cart" placement="bottomRight" content={contentCart} trigger="hover">
+        				<Button>
+									<Link to="/cart">
+									<div className="center-icon">
+										<span><i className="far fa-shopping-cart"></i></span>
 									</div>
-									<div className="info-cart-product">
-										<h3>Name Product</h3>
-										<div className="description-product">
-											<p>Description</p>
-										</div>
+									<div className="scroll ">
+										<span >Giỏ hàng</span>
 									</div>
-								</li>
-							</ul>
+									</Link>
+								</Button>
+      				</Popover>
 						</li>
 						{userInfo.data.id ?
 							(
-								<li title="Cá nhân">
-									<Link to="/ca-nhan">
-
-										<div className="center-icon">
-											<span><i className="far fa-user"></i></span>
-										</div>
-										<div className="scroll ">
-											<span >{userInfo.data.userName}</span>
-										</div>
-									</Link>
+								<li title="Cá nhân" className="login-hover">
+									<Popover placement="bottom" content={contentUser} trigger="hover">
+        						<Button>
+											<Link to="/ca-nhan">
+											<div className="center-icon">
+												<span><i className="far fa-user"></i></span>
+											</div>
+											<div className="scroll ">
+												<span >{userInfo.data.userName}</span>
+											</div>
+											</Link>
+										</Button>
+      						</Popover>
 								</li>
 							) : (
 								<>
 									<li title="Đăng nhập">
-										<Link to="/dang-nhap">
-											<div className="center-icon">
-												<span><i className="far fa-sign-in-alt"></i></span>
-											</div>
-											<div className="scroll ">
-												<span >Đăng nhập</span>
-											</div>
-										</Link>
+										<Button>	
+											<Link to="/dang-nhap">
+												<div className="center-icon">
+													<span><i className="far fa-sign-in-alt"></i></span>
+												</div>
+												<div className="scroll ">
+													<span >Đăng nhập</span>
+												</div>
+											</Link>
+										</Button>
 									</li>
 									<li title="Đăng ký">
-										<Link to="/dang-ky">
-											<div className="center-icon">
-												<span><i className="far fa-book"></i></span>
-											</div>
-											<div className="scroll ">
-												<span >Đăng ký</span>
-											</div>
-										</Link>
+										<Button>
+											<Link to="/dang-ky">
+												<div className="center-icon">
+													<span><i className="far fa-book"></i></span>
+												</div>
+												<div className="scroll ">
+													<span >Đăng ký</span>
+												</div>
+											</Link>
+										</Button>
 									</li>
 
 								</>
@@ -120,9 +133,14 @@ function index({ userInfo }) {
 }
 const mapStateToProps = (state) => {
 	const { userInfo } = state.userReducer;
-	// console.log('userInfo: ', userInfo);
 	return {
 		userInfo,
 	}
 };
-export default connect(mapStateToProps)(index)
+const mapDispatchToProps = (dispatch) => {
+	return {
+		logout: (params) => dispatch(logoutAction(params))
+	}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Header)
+

@@ -17,11 +17,29 @@ export function getProductSameAction(params) {
     payload: params,
   }
 }
-
 export function addProductCartAction(params) {
   console.log("params: ", params)
   return {
-    type: 'ADD_PRODUCT_REQUEST',
+    type: 'ADD_PRODUCT_CART_REQUEST',
+    payload: params,
+  }
+}
+export function addProductAction(params) {
+  console.log("params: ", params)
+  return {
+    type: 'ADD_PRODUCT_ADMIN_REQUEST',
+    payload: params,
+  }
+}
+export function editProductAction(params) {
+  return {
+    type: 'EDIT_PRODUCT_ADMIN_REQUEST',
+    payload: params,
+  }
+}
+export function removeProductAction(params) {
+  return {
+    type: 'REMOVE_PRODUCT_AMIN_REQUEST',
     payload: params,
   }
 }

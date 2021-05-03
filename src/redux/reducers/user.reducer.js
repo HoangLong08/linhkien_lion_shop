@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export default function userReducer(state = initialState, action) {
-   // console.log("state reducer: ", state)
    switch (action.type) {
       case 'LOGIN_REQUEST':
          {
@@ -112,6 +111,14 @@ export default function userReducer(state = initialState, action) {
                   },
                }
             }
+            case 'LOGOUT':
+               {
+                  return {
+                     userInfo: {
+                        data: {}
+                     }
+                  }
+               }
       default:
          {
             return state;
