@@ -12,6 +12,7 @@ export function getProductDetailAction(params){
   }
 }
 export function getProductSameAction(params) {
+  console.log("params: ",params)
   return {
     type: 'GET_PRODUCT_SAME_REQUEST',
     payload: params,

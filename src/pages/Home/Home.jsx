@@ -27,6 +27,7 @@ function Home({getProductList, productList }) {
 	
 	function renderProduct() {
 		return productList.data.map((item, id) => {
+			
 		  return (
 			<Col md={6} key={id}>
 				<Item id={item.id} name={item.name} price={item.price} image={item.image}/>

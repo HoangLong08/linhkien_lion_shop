@@ -18,7 +18,8 @@ function Detail({ productDetail, productListSame, getProductDetail, getProductSa
 	// console.log("productDetail: ", productDetail) // url 
 	// console.log("getProductDetail: ", categoryId);
 	const { image, name, price, categoryId } = productDetail.data;
-	// console.log("productListSame: ", productListSame)
+	console.log("productListSame: ", productDetail.data)
+
 //console.log("productListSame: ", productListSame)
 	const productId = match.params.id;
 	const [optionSelected, setOptionSelected] = useState({});
@@ -45,7 +46,9 @@ function Detail({ productDetail, productListSame, getProductDetail, getProductSa
 	
 	function renderProductOptions() {
 		if (productDetail.data.id) {
+
 			return productDetail.data.productOptions.map((item, index) => {
+				console.log(item)
 				return (
 					<div key={index} className="product-select-item">
 						<div className="radio">
