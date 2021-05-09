@@ -1,3 +1,5 @@
+var localStorageCart = JSON.parse(localStorage.getItem("shoppingCart"));
+var localStorageNumberCart = JSON.parse(localStorage.getItem("numberCart"));
 const initialState = {
   productList: {
     data: [],
@@ -14,15 +16,16 @@ const initialState = {
     load: false,
     error: '',
   },
-  cart: {
-    data: [],
+  
+  numberCart:localStorageNumberCart ? localStorageNumberCart : 0,
+  shoppingCart: {
+    data: localStorageCart ? localStorageCart : [],
     load: false,
     error: '',
   },
 };
 
 export default function productReducer(state = initialState, action) {
-  
   switch (action.type) {
     case 'GET_PRODUCT_LIST_REQUEST': {
       return {
@@ -150,7 +153,7 @@ export default function productReducer(state = initialState, action) {
     }
     case 'GET_PRODUCT_SAME_SUCCESS': {
       const { data } = action.payload;
-      console.log("state product reducer: ", data)
+      // console.log("state product reducer : ", data)
       return {
         ...state,
         productListSame: {
@@ -169,6 +172,48 @@ export default function productReducer(state = initialState, action) {
           load: false,
           error: error,
         },
+      }
+    }
+    case 'ADD_PRODUCT_CART_REQUEST': {
+      const { data } = action.payload;
+      
+      if(state.numberCart === 0){
+        let cart = {
+            id:action.payload.id,
+            quantity:1,
+            name:action.payload.name,
+            image:action.payload.image,
+            price:action.payload.price
+          }
+          state.shoppingCart.data.push(cart);
+      }
+      else{
+          let check = false;
+          state.shoppingCart.data.map((item,key)=>{
+              if(item.id === action.payload.id){
+                  state.shoppingCart.data[key].quantity++;
+                  check=true;
+              }
+          });
+          if(!check){
+              let _cart = {
+                  id:action.payload.id,
+                  quantity:1,
+                  name:action.payload.name,
+                  image:action.payload.image,
+                  price:action.payload.price
+              }
+              state.shoppingCart.data.push(_cart);
+          }
+          //
+      }
+      state.numberCart+=1
+      localStorage.setItem("shoppingCart", JSON.stringify(state.shoppingCart.data))
+      localStorage.setItem("numberCart", JSON.stringify(state.numberCart))
+      return {
+        ...state,
+        numberCart:state.numberCart
+
       }
     }
     default: {

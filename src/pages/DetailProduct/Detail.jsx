@@ -7,26 +7,23 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { getProductDetailAction, getProductSameAction } from '../../redux/actions';
+import { getProductDetailAction, getProductSameAction, addProductCartAction } from '../../redux/actions';
 import Header from '../commom/Header';
 import Footer from '../commom/Footer';
 import Item from '../commom/Item';
 import history from '../../utils/history';
 import './style.css'
 
-function Detail({ productDetail, productListSame, getProductDetail, getProductSame, match }) {
+function Detail({ productDetail, productListSame, shoppingCart,  addToCart, getProductDetail, getProductSame, match }) {
 	// console.log("productDetail: ", productDetail) // url 
-	// console.log("getProductDetail: ", categoryId);
-	const { image, name, price, categoryId } = productDetail.data;
-	console.log("productListSame: ", productDetail.data)
 
-//console.log("productListSame: ", productListSame)
+	const {id, image, name, price, categoryId } = productDetail.data;
+
 	const productId = match.params.id;
 	const [optionSelected, setOptionSelected] = useState({});
 
 	useEffect(() => {
 		getProductDetail({ id: productId });
-		
 	}, [productId])
 
 	useEffect(() => {
@@ -35,7 +32,6 @@ function Detail({ productDetail, productListSame, getProductDetail, getProductSa
 
 	useEffect(() => {
 		if (productDetail.data.id) {
-			// console.log("alo: ", productDetail.data.productOptions[0])
 			setOptionSelected(productDetail.data.productOptions[0] || {})
 		}
 	}, [productDetail.data])
@@ -68,6 +64,26 @@ function Detail({ productDetail, productListSame, getProductDetail, getProductSa
 			})
 		}
 	}
+	
+	
+	function clickAddToCart(id, image, name, price, categoryId){
+		
+		// console.log(id, image, name, price, categoryId);
+		// var b = {
+		// 	id: id,
+		// 	image: image,
+		// 	name: name,
+		// 	price: price,
+		// 	categoryId: categoryId,
+		// 	quantity: 1
+
+		// };
+		addToCart({id, image, name, price, categoryId})
+		// cart.data.push(b)
+		// localStorage.setItem("cart",cart.data)
+		console.log("cart: ", shoppingCart)
+	}
+	
 
 	function renderProductSame(){
 		return productListSame.data.map((item, id) => {
@@ -131,7 +147,7 @@ function Detail({ productDetail, productListSame, getProductDetail, getProductSa
 													<button className="btn btn-buy" onClick={() => history.push(`/gio-hang`)}>Mua ngay</button>
 												</Col>
 												<Col md={12}>
-													<button className="btn btn-cart">Thêm giỏ hàng</button>
+													<button className="btn btn-cart" onClick={()=>clickAddToCart(id, image, name, price, categoryId)}>Thêm giỏ hàng</button>
 												</Col>
 											</Row>
 
@@ -223,17 +239,19 @@ function Detail({ productDetail, productListSame, getProductDetail, getProductSa
 	)
 }
 const mapStateToProps = (state) => {
-	const { productDetail, productListSame } = state.productReducer;
+	const { productDetail, productListSame, shoppingCart } = state.productReducer;
 	return {
 		productDetail,
-		productListSame
+		productListSame,
+		shoppingCart
 	}
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		getProductDetail: (params) => dispatch(getProductDetailAction(params)),
-		getProductSame  : (params) => dispatch(getProductSameAction(params))
+		getProductSame  : (params) => dispatch(getProductSameAction(params)),
+		addToCart		 : (params) => dispatch(addProductCartAction(params))
 	};
 }
 

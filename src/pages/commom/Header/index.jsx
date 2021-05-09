@@ -12,17 +12,21 @@ const { Search } = Input;
 const onSearch = value => console.log(value);
 function Header({ userInfo, logout }) {
 
-	const contentCart = (
-  <div className="sub-cart">
-    <div className="img-sub">
-			<img src="https://via.placeholder.com/50x50" alt="pic"/>
-		</div>
-		<div className="description-sub">
-			<div>Name</div>
-			<div>Description</div>
-		</div>
-  </div>
-	);
+	var localStorageCart = JSON.parse(localStorage.getItem("shoppingCart"));
+	console.log("localStorageCart", localStorageCart.length)
+	const renderListCart = localStorageCart.map((item) => {
+		return (
+			<div className="sub-cart">
+				<div className="img-sub">
+					<img src={item.image} alt="pic" />
+				</div>
+				<div className="description-sub">
+					<div>{item.name}</div>
+					<div>{item.price.toLocaleString('vi', { style: 'currency', currency: 'VND' })}</div>
+				</div>
+			</div>
+		)
+	})
 	const contentUser = (
 		<div className="sub-user">
 			<div>Information User</div>
@@ -31,8 +35,8 @@ function Header({ userInfo, logout }) {
 			</Button>
 		</div>
 	)
-	function logOut(){
-		history.replace({ pathname: '/'})
+	function logOut() {
+		history.replace({ pathname: '/' })
 		localStorage.clear()
 		logout()
 	}
@@ -64,39 +68,39 @@ function Header({ userInfo, logout }) {
 					</div>
 					<ul className="header-menu">
 						<li title="Giỏ hàng" className="cart-wrapp" >
-							<Popover className="btn-hover-cart" placement="bottomRight" content={contentCart} trigger="hover">
-        				<Button>
-									<Link to="/cart">
-									<div className="center-icon">
-										<span><i className="far fa-shopping-cart"></i></span>
-									</div>
-									<div className="scroll ">
-										<span >Giỏ hàng</span>
-									</div>
+							<Popover className="btn-hover-cart" placement="bottomRight" content={renderListCart} trigger="hover">
+								<Button>
+									<Link to="/gio-hang">
+										<div className="center-icon">
+											<span><i className="far fa-shopping-cart"></i></span>
+										</div>
+										<div className="scroll ">
+											<span >Giỏ hàng</span>
+										</div>
 									</Link>
 								</Button>
-      				</Popover>
+							</Popover>
 						</li>
 						{userInfo.data.id ?
 							(
 								<li title="Cá nhân" className="login-hover">
 									<Popover placement="bottom" content={contentUser} trigger="hover">
-        						<Button>
+										<Button>
 											<Link to="/ca-nhan">
-											<div className="center-icon">
-												<span><i className="far fa-user"></i></span>
-											</div>
-											<div className="scroll ">
-												<span >{userInfo.data.userName}</span>
-											</div>
+												<div className="center-icon">
+													<span><i className="far fa-user"></i></span>
+												</div>
+												<div className="scroll ">
+													<span >{userInfo.data.userName}</span>
+												</div>
 											</Link>
 										</Button>
-      						</Popover>
+									</Popover>
 								</li>
 							) : (
 								<>
 									<li title="Đăng nhập">
-										<Button>	
+										<Button>
 											<Link to="/dang-nhap">
 												<div className="center-icon">
 													<span><i className="far fa-sign-in-alt"></i></span>
@@ -119,7 +123,6 @@ function Header({ userInfo, logout }) {
 											</Link>
 										</Button>
 									</li>
-
 								</>
 							)
 						}
@@ -142,5 +145,5 @@ const mapDispatchToProps = (dispatch) => {
 		logout: (params) => dispatch(logoutAction(params))
 	}
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
 
