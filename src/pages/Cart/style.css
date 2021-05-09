@@ -11,13 +11,13 @@
 .content-cart h2{
   margin-bottom: 20px !important;
 }
-.list-cart-product{
-  background-color: white;
-  border-radius: 8px;
-}
+
 .cart-product{
   display: flex;
   padding: 20px;
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 8px;
 }
 .cart-image{
   width: 80px;
@@ -95,7 +95,7 @@ input:focus-visible {
   background-color: white;
   border-radius: 8px;
   position: sticky ;
-  top: 0px ;
+  top: 70px ;
 }
 .content-payment h2{
   margin-bottom: 20px !important;

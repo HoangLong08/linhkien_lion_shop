@@ -3,6 +3,35 @@ import Header from "../commom/Header";
 import Footer from "../commom/Footer";
 import "./style.css";
 function index() {
+  var localStorageCart = JSON.parse(localStorage.getItem("shoppingCart"));
+  console.log("localStorageCart", localStorageCart.length)
+  const renderListCart =  localStorageCart.map((item) => {
+    return (
+      <div className="cart-product">
+        <div className="cart-image"  height="80" width="80">
+          <img className="lazyload" alt="product" src={item.image} loading="lazy" decoding="async"/>
+        </div>
+        <div className="cart-name" style={{width: "300px"}}>
+          <p>{item.name}</p>
+        </div>
+        <div className="cart-quanty">
+          
+          <button className="btn-quantity">
+            {/* <span >{item.quantity === 1 ? (<i className="fal fa-trash-alt"></i>) : "-"}</span> */}
+            <span>-</span>
+          </button>
+          <input type="number" className="content-quantity" value={item.quantity} readOnly style={{marginLeft: "10px"}} />
+          <button className="btn-quantity">
+            <span>+</span>
+          </button>
+          
+        </div>
+        <div className="cart-price">
+          <p>{item.price.toLocaleString('vi', { style: 'currency', currency: 'VND' })}</p>
+        </div>
+      </div>
+    )
+  })
   return (
     <>
       <Header />
@@ -12,28 +41,8 @@ function index() {
             <h2>Giỏ hàng của bạn</h2>
             <div className="list-cart-product">
               
-              <div className="cart-product">
-                <div className="cart-image"  height="80" width="80">
-                  <img className="lazyload" alt="product" src="https://phongvu.vn/api/products/201000613/default_image" loading="lazy" decoding="async"/>
-                </div>
-                <div className="cart-name">
-                  <p>Điện Thoại Di Động iPhone 12 64GB Black MGJ53VN/A</p>
-                </div>
-                <div className="cart-quanty">
-                 
-                  <button className="btn-quantity">
-                    <span >{1 === 1 ? (<i className="fal fa-trash-alt"></i>) : "-"}</span>
-                  </button>
-                  <input type="number" className="content-quantity" value="2" readOnly />
-                  <button className="btn-quantity">
-                    <span>+</span>
-                  </button>
-                 
-                </div>
-                <div className="cart-price">
-                 <p>26000000</p>
-                </div>
-              </div>
+              {renderListCart}
+
             </div>
           </Col>
           <Col span={8}>

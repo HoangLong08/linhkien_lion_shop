@@ -56,7 +56,7 @@ function* getProductListSameSaga(action) {
       method: 'GET',
       url: `http://localhost:3001/products?categoryId=${categoryId}`
     });
-    console.log("result list product: ", result)
+    // console.log("result list product: ", result)
     yield put({
       type: "GET_PRODUCT_SAME_SUCCESS",
       payload: {
