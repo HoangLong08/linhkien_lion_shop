@@ -17,7 +17,13 @@ export function getProductSameAction(params) {
     payload: params,
   }
 }
-
+export function addProductCartAction(params) {
+  console.log("params cart: ", params)
+  return {
+    type: 'ADD_PRODUCT_CART_REQUEST',
+    payload: params,
+  }
+}
 export function addProductAdminAction(params) {
   return {
     type: 'ADD_PRODUCT_ADMIN_REQUEST',
