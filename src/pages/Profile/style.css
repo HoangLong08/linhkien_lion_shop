@@ -1,0 +1,29 @@
+.profile-container {
+  width: 100%;
+  height: 500px;
+  margin-top: 20px;
+}
+h1 {
+  text-align: center;
+  font-weight: 700;
+  color: gray;
+}
+.img-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 50px;
+}
+.img-profile img {
+  border-radius: 999px;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-pro {
+  width: 500px;
+  margin-top: 50px;
+}

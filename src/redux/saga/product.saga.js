@@ -73,16 +73,16 @@ function* getProductListSameSaga(action) {
   }
 }
 
-function* addProductSaga(action) {
+function* addProductAdminSaga(action) {
    try {
     const { price, name } = action.payload;
-    const result = yield axios.post('http://localhost:3001/products', {name, price})
-    if (result.data) {
+    const pos = yield axios.post('http://localhost:3001/products', {name, price})
+    const result = yield axios.get('http://localhost:3001/products')
+    if (pos.data) {
       yield put({ // đợi rồi mới chạy
         type: "ADD_PRODUCT_ADMIN_SUCCESS",
         payload: {
-          // data: result.data[0],
-          // data: result.data,
+          data: result.data,
         },
       });
       // yield alert("Thành công");
@@ -104,10 +104,10 @@ function* addProductSaga(action) {
    }
 }
 
-function* editProductSaga (action) {
+function* editProductAdminSaga (action) {
   try {
     const {name,price,id} = action.payload
-    const result = yield axios.post(`http://localhost:3001/products/${id}`, {name, price})
+    const result = yield axios.put(`http://localhost:3001/products/${id}`, {name, price})
     if(result.data){
       yield put({
         type: 'EDIT_PRODUCT_ADMIN_SUCCESS',
@@ -130,12 +130,38 @@ function* editProductSaga (action) {
       })
     }
 }
-
+function* removeProductAdminSaga(action){
+  try {
+    const { id } = action.payload
+    const result = yield axios.delete(`http://localhost:3001/products/${id}`)
+    if(result.data) {
+        yield put({
+          type: 'REMOVE_PRODUCT_ADMIN_SUCCESS',
+          payload: { id }
+    })
+    } else {
+      yield put ({
+        type: 'REMOVE_PRODUCT_ADMIN_FAIL',
+        payload: {
+          error: 'FAIL'
+        }
+      })
+    }
+  } catch (e) {
+    yield put ({
+      type: 'REMOVE_PRODUCT_ADMIN_FAIL',
+      payload: {
+        error: e.error
+      }
+    })
+  }
+}
 export default function* productSaga() {
   yield takeEvery('GET_PRODUCT_LIST_REQUEST', getProductListSaga);
   yield takeEvery('GET_PRODUCT_DETAIL_REQUEST', getProductDetailSaga);
   yield takeEvery('GET_PRODUCT_SAME_REQUEST', getProductListSameSaga);
-  yield takeEvery('ADD_PRODUCT_ADMIN_REQUEST', addProductSaga);
-  yield takeEvery('EDIT_PRODUCT_ADMIN_REQUEST', editProductSaga);
+  yield takeEvery('ADD_PRODUCT_ADMIN_REQUEST', addProductAdminSaga);
+  yield takeEvery('EDIT_PRODUCT_ADMIN_REQUEST', editProductAdminSaga);
+  yield takeEvery('REMOVE_PRODUCT_ADMIN_REQUEST',removeProductAdminSaga)
   // yield takeEvery('GET_PRODUCT_DETAIL_REQUEST', getProductDetailSaga);
 }

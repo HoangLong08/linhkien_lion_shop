@@ -72,6 +72,24 @@ function* getUserInfoSaga(action) {
     });
   }
 }
+function* getUserListSaga(action) {
+  try {
+    const result = yield axios.get('http://localhost:3001/users/')
+    yield put({
+      type: 'GET_USER_LIST_SUCCESS',
+      payload: {
+        data: result.data
+      }
+    })
+  } catch(e) {
+    yield put({
+      type: 'GET_USER_LIST_FAIL',
+      payload: {
+        error: e.error
+      }
+    })
+  }
+}
 
 function* registerSaga(action) {
   try {
@@ -98,6 +116,7 @@ function* registerSaga(action) {
           },
         });
         yield alert("Đăng ký thành công");
+        yield history.push('/');
       } else {
         yield put({
           type: "REGISTER_FAIL",
@@ -117,10 +136,66 @@ function* registerSaga(action) {
   }
 }
 
+function* removeUserSaga(action) {
+  try {
+    const { id } = action.payload
+    const result = yield axios.delete(`http://localhost:3001/users/${id}`)
+    if(result.data) {
+        yield put({
+          type: 'REMOVE_USER_SUCCESS',
+          payload: { id }
+    })
+    } else {
+      yield put ({
+        type: 'REMOVE_USER_FAIL',
+        payload: {
+          error: 'FAIL'
+        }
+      })
+    }
+  } catch (e) {
+    yield put ({
+      type: 'REMOVE_USER_FAIL',
+      payload: {
+        error: e.error
+      }
+    })
+  }
+}
 
+function* editUserSaga (action) {
+  try {
+    const { id, userName, email } = action.payload
+    const result = yield axios.put(`http://localhost:3001/users/${id}`,{userName,email})
+    localStorage.setItem('userInfo', JSON.stringify(result.data));
+    if (result.data) {
+      yield put({
+        type: 'EDIT_USER_SUCCESS',
+        payload: {
+          data: result.data
+        }
+      })
+    } else {
+      yield put({
+        type: 'EDIT_USER_FAIL',
+        payload: 'FAIL'
+      })
+    }
+  } catch (e) {
+    yield put ({
+      type: 'EDIT_USER_FAIL',
+      payload: {
+        error: e.error
+      }
+    })
+  }
+}
 
 export default function* userSaga() {
   yield takeEvery('LOGIN_REQUEST', loginSaga);
   yield takeEvery('GET_USER_INFO_REQUEST', getUserInfoSaga);
   yield takeEvery('REGISTER_REQUEST', registerSaga);
+  yield takeEvery('GET_USER_LIST_REQUEST', getUserListSaga);
+  yield takeEvery('REMOVE_USER_REQUEST',removeUserSaga);
+  yield takeEvery('EDIT_USER_REQUEST',editUserSaga);
 }
