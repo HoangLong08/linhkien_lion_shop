@@ -10,15 +10,32 @@ export function getUserInfoAction(params) {
         payload: params,
     }
 }
+export function getUserListAction(params){
+    return {
+        type: 'GET_USER_LIST_REQUEST',
+        payload: params,
+    }
+}
 export function registerAction(params) {
-    console.log("params: ", params)
     return {
         type: 'REGISTER_REQUEST',
         payload: params,
     }
 }
-export function logoutAction(params) {
+export function logoutAction() {
     return {
         type: 'LOGOUT',
+    }
+}
+export function removeUserAction(params) {
+    return {
+        type: 'REMOVE_USER_REQUEST',
+        payload: params
+    }
+}
+export function editUserAction(params) {
+    return {
+        type: 'EDIT_USER_REQUEST',
+        payload: params
     }
 }

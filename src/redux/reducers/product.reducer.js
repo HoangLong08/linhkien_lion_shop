@@ -100,14 +100,49 @@ export default function productReducer(state = initialState, action) {
     }
     case 'EDIT_PRODUCT_ADMIN_SUCCESS': {
       const { id, name, price } = action.payload
-      const newProductList = state.productList
-      newProductList.data.splice(id, 1, {name: name, price: price})
+      const newProductList = state.productList.data;
+      const productIndex = newProductList.findIndex((item) => { return item.id === id });
+      newProductList.splice(productIndex, 1, {id: id, name: name, price: price})
       return {
         ...state,
         productList: {
           ...newProductList,
           load: false,
-          data: newProductList.data
+          data: newProductList
+        }
+      }
+    }
+    case 'EDIT_PRODUCT_ADMIN_FAIL': {
+      const { error } = action.payload
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          load: false,
+          error: error
+        }
+      }
+    }
+    case 'REMOVE_PRODUCT_ADMIN_REQUEST': {
+      return {
+        ...state,
+        productList: {
+          ...state.productList,
+          load: true,
+        }
+      }
+    }
+    case 'REMOVE_PRODUCT_ADMIN_SUCCESS': {
+      const { id } = action.payload
+      const newProductList = state.productList.data;
+      const productIndex = newProductList.findIndex((item) => { return item.id === id });
+      newProductList.splice(productIndex, 1)
+      return {
+        ...state,
+        productList: {
+          ...newProductList,
+          load: false,
+          data: newProductList
         }
       }
     }

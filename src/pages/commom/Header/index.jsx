@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Input, Popover, Button } from 'antd';
@@ -29,9 +29,9 @@ function Header({ userInfo, logout }) {
 	})
 	const contentUser = (
 		<div className="sub-user">
-			<div>Information User</div>
+			<Button onClick={() => history.replace({ pathname: '/profile'})}>Thông tin cá nhan</Button>
 			<Button onClick={() => logOut()}>
-				<div>Log Out</div>
+				<div>Đăng suất</div>
 			</Button>
 		</div>
 	)
