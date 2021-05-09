@@ -24,21 +24,21 @@ export function addProductCartAction(params) {
     payload: params,
   }
 }
-export function addProductAction(params) {
+export function addProductAdminAction(params) {
   return {
     type: 'ADD_PRODUCT_ADMIN_REQUEST',
     payload: params,
   }
 }
-export function editProductAction(params) {
+export function editProductAdminAction(params) {
   return {
     type: 'EDIT_PRODUCT_ADMIN_REQUEST',
     payload: params,
   }
 }
-export function removeProductAction(params) {
+export function removeProductAdminAction(params) {
   return {
-    type: 'REMOVE_PRODUCT_AMIN_REQUEST',
+    type: 'REMOVE_PRODUCT_ADMIN_REQUEST',
     payload: params,
   }
 }
