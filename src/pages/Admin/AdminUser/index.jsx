@@ -6,6 +6,7 @@ import ItemUser from './ItemUser'
 import { useEffect } from 'react'
 
 function AdminUser({userList, getUserList}) {
+console.log("🚀 ~ file: index.jsx ~ line 9 ~ AdminUser ~ userList", userList)
 
   useEffect(() => {
     getUserList()
